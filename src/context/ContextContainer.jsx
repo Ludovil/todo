@@ -18,10 +18,6 @@ const ContextContainer = (props) => {
 
 	const [state, dispatch] = useReducer(reducer, tasks);
 
-	useEffect(() => {
-		dispatch({ type: 'ONLOAD' });
-	}, []);
-
 	const addItem = (value) => {
 		dispatch({ type: 'ADD_ITEM', payload: value });
 	};
@@ -33,6 +29,13 @@ const ContextContainer = (props) => {
 	const todos = state.filter((element) => !element.done);
 
 	const todones = state.filter((element) => element.done);
+
+	useEffect(() => {
+		const task = JSON.parse(localStorage.getItem('todos'));
+		if (task) {
+			dispatch({ type: 'ONLOAD' });
+		}
+	}, []);
 
 	return (
 		<MyContext.Provider value={{ todos, todones, addItem, updateItem }}>
