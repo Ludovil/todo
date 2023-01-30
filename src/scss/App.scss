@@ -1,0 +1,33 @@
+@use "./partials/variables.scss" as *;
+@use "./partials/help";
+@use "./partials/_todo";
+@use "./partials/navigation";
+@use "./partials/notFound";
+
+.app {
+    height: 100vh;
+    background: $mainBg;
+    color: $mainTxt;
+    overflow:scroll;
+    font-family: sans-serif;
+    .btn {
+        border: none;
+        font-size: 1.2rem;
+        padding: 10px;
+        border-radius: 20px;
+        width: 70px;
+        font-weight: 700;
+        background: $btnBg;
+        color: $mainTxt;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+    
+   
+}
+
